@@ -13,7 +13,7 @@ export default class App {
      * @type {Example}
      */
     this.image = new CanvasImage({
-      src : "../images/GEB.png",
+      src : "../images/GEB_enc.png",
       width : 1000,
       height : 1443,
       container : "#image"
