@@ -1,0 +1,12 @@
+$link-color: #00B7FF;
+$font-stack: "Lucida Grande", Helvetica, Arial, sans-serif;
+
+body {
+  padding: 50px;
+  font: 14px $font-stack;
+  background-image: url("../images/bg.png");
+}
+
+a {
+  color: $link-color;
+}

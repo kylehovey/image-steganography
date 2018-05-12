@@ -1,0 +1,11 @@
+extends layout
+
+append content
+  div.container
+    div.jumbotron
+      h1 Meta-Meanings and Interpretation
+      div.row
+        div.col-md-12(id="image-area")
+          canvas(id="image", width="1000", height="1443")
+append userScripts
+  script(src="/js/app/index/bundle.js")
