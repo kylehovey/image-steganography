@@ -159,7 +159,7 @@ export default class CanvasImage {
    * Get the image data for the source
    * @return {Promise<ImageData>}
    */
-  _getImageData() {
+  getImageData() {
     const { width, height } = this._canvas;
 
     return this._ctx.getImageData(0, 0, width, height);
@@ -170,14 +170,13 @@ export default class CanvasImage {
    * @param {String} string String to encode
    */
   async encodeOntoCanvas(string = "") {
-    const { data } = this._getImageData();
+    const { data } = this.getImageData();
     const encoded = encodeData(string, data);
     const encodedData = new ImageData(
       encoded,
       this._opts.width,
       this._opts.height
     );
-    console.log({ decoded : decodeData(encoded) });
     await this.render(encodedData);
   }
 
@@ -185,7 +184,7 @@ export default class CanvasImage {
    * Decode a string from the image
    */
   decodeFromCanvas(string = "") {
-    const { data } = this._getImageData();
+    const { data } = this.getImageData();
     return decodeData(data);
   }
 
@@ -193,7 +192,7 @@ export default class CanvasImage {
    * Render the iamge
    * @param {ImageData} [imageData] Data to render
    */
-  render(imageData = this._getImageData()) {
+  render(imageData = this.getImageData()) {
     this._ctx.putImageData(imageData, 0, 0);
   }
 }

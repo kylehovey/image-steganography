@@ -3,13 +3,11 @@
     "compileJS" : [
       {
         "name" : "app-JS",
-        "opts" : { "production" : false },
+        "opts" : { "production" : true },
         "src" : "./src/js/index/main.js",
         "dest" : "./public/js/app/index",
         "enabled" : true
-      }
-    ],
-    "compileCSS" : [
+      } ], "compileCSS" : [
       {
         "name" : "app-CSS",
         "opts" : { },
