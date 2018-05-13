@@ -1,4 +1,4 @@
-import CanvasImage from "../components/image/image.js";
+import CanvasImage from "../components/canvasImage/canvasImage.js";
 
 /**
  * Main application code for one view
@@ -10,7 +10,7 @@ export default class App {
   constructor() {
     /**
      * Image
-     * @type {Example}
+     * @type {?CanvasImage}
      */
     this.image = null;
   }

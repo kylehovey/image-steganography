@@ -1,5 +1,5 @@
 import App from "./app.js";
-import CanvasImage from "../components/image/image.js";
+import CanvasImage from "../components/canvasImage/canvasImage.js";
 
 $(() => {
   // Create the application
