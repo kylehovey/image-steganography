@@ -9,7 +9,7 @@ docs/**
 public/js/**
 
 # Compiled SASS
-public/js/**/*.css
+public/style/*.css
 
 # Logs
 logs
