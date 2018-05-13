@@ -52,18 +52,17 @@ function encodeData(string = "", data = new Uint8ClampedArray) {
   }
 
   // Create new array for output
-  const out = [... data ];
+  const out = [ ... data ];
 
   // Encode each character onto two nibbles
   let head = 0;
   for (const char of string) {
     const asciiCode = char.charCodeAt(0);
-    let [ upper, lower ] = [ 0xF0, 0x0F ].map(mask => asciiCode & mask);
-    upper = upper >> 4;
+    const [ upper, lower ] = [ 0xF0, 0x0F ].map(mask => asciiCode & mask);
 
     const [ upperIdx, lowerIdx, shifts ] = shiftNoFour(head, head + 1);
 
-    out[upperIdx] = encodeNibble(upper, out[upperIdx]);
+    out[upperIdx] = encodeNibble(upper >> 4, out[upperIdx]);
     out[lowerIdx] = encodeNibble(lower, out[lowerIdx]);
 
     head += 2 + shifts;
