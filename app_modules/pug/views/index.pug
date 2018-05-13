@@ -4,14 +4,25 @@ append content
   div.container
     div.jumbotron
       h1 Meta-Meanings and Interpretation
+      hr
+      div.row.text-center.margin-after
+        div.col-md-6
+          label.btn.btn-default
+            Browse
+            input(type="file", id="image-upload", hidden)
+      div.row.margin-after
+        div.col-md-6
+          div.text-container.margin-after
+            span(id="message-output")
+          button.btn.btn-success(id="decode") Decode Image
+        div.col-md-6
+          div.form-group
+            textarea.form-control(id="message-input", rows="24")
+          button.btn.btn-warning(id="encode") Encode Onto Image
       div.row
+        h2 Image Output:
+        hr
         div.col-md-12(id="image-area")
           canvas(id="image", width="1000", height="1443")
-      div.row
-        div.col-md-2.col-md-offset-5
-          button.btn.btn-success(id="decode") Decode Image
-      div.row
-        div.col-md-12
-          span(id="message")
 append userScripts
   script(src="/js/app/index/bundle.js")

@@ -3,7 +3,7 @@
     "compileJS" : [
       {
         "name" : "app-JS",
-        "opts" : { "production" : true },
+        "opts" : { "production" : false },
         "src" : "./src/js/index/main.js",
         "dest" : "./public/js/app/index",
         "enabled" : true

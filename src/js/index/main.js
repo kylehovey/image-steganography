@@ -1,4 +1,5 @@
 import App from "./app.js";
+import CanvasImage from "../components/image/image.js";
 
 $(() => {
   // Create the application
@@ -6,6 +7,36 @@ $(() => {
 
   // Listeners
   $("#decode").on("click", () => {
-    $("#message").text(app.image.decodeFromCanvas());
+    if (app.image !== null) {
+      $("#message-output").text(app.image.decodeFromCanvas());
+    }
+  });
+
+  $("#encode").on("click", e => {
+    if (app.image !== null) {
+      app.image.encodeOntoCanvas($("#message-input").val());
+    }
+  });
+
+  $("#image-upload").on("change", e => {
+    if ("files" in e.target) {
+      const reader = new FileReader;
+      const [ file ] = e.target.files;
+      reader.readAsDataURL(file);
+
+      reader.onload = e => {
+        const img = new Image;
+        img.src = e.target.result;
+        img.onload = () => {
+          app.image = new CanvasImage({
+            src : e.target.result,
+            width : img.width,
+            height : img.height,
+            container : "#image"
+          });
+        };
+      };
+
+    }
   });
 });
